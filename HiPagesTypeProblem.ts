@@ -5,90 +5,84 @@
 //     Here is the implementation:
 //
 //     ```typescript
+// ```
 interface Data {
-  value: number;
+    value: number;
 }
 //
 interface AsyncFunctionObject {
-  func: (input: Data) => Promise<Data>;
-  description: string; // Added for context in logging
+    func: (input: Data) => Promise<Data>;
+    description: string; // Added for context in logging
 }
+//let value1 = asyncFunctionObjects[0].description
+//let value2=asyncFunctionObjects[0].func({value:10})
+//value3=asyncFunctionObjects[0].func[2]
 
 const asyncFunctionObjects: AsyncFunctionObject[] = [
-  {
-    func: async (input: Data) => {
-      // @ts-ignore
-        return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ value: input.value * 2 });
-        }, 1000);
-      });
+    {
+       // func: async (input: Data) => {
+            // @ts-ignore
+        func:[2,3,6],
+            // return new Promise((resolve) => {
+            //     setTimeout(() => {
+            //         resolve({ value: input.value * 2 });
+            //     }, 1000);
+            // });
+       // },
+        description: "Multiply by 2",
     },
-    description: "Multiply by 2",
-  },
-  {
-    func: async (input: Data) => {
-      // @ts-ignore
-        return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ value: input.value + 3 });
-        }, 1000);
-      });
+    {
+        func: async (input: Data) => {
+            // @ts-ignore
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ value: input.value + 3 });
+                }, 1000);
+            });
+        },
+        description: "Add 3",
     },
-    description: "Add 3",
-  },
-  {
-    func: async (input: Data) => {
-      // @ts-ignore
-        return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ value: input.value - 5 });
-        }, 1000);
-      });
+    {
+        func: async (input: Data) => {
+            // @ts-ignore
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ value: input.value - 5 });
+                }, 1000);
+            });
+        },
+        description: "Subtract 5",
     },
-    description: "Subtract 5",
-  },
-  {
-    func: async (input: Data) => {
-      // @ts-ignore
-        return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ value: input.value / 2 });
-        }, 1000);
-      });
+    {
+        func: async (input: Data) => {
+            // @ts-ignore
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ value: input.value / 2 });
+                }, 1000);
+            });
+        },
+        description: "Divide by 2",
     },
-    description: "Divide by 2",
-  },
-  {
-    func: async (input: Data) => {
-      // @ts-ignore
-        return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve({ value: input.value * input.value });
-        }, 1000);
-      });
-    },
-    description: "Square the value",
-  }
+    {
+        func: async (input: Data) => {
+            // @ts-ignore
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ value: input.value * input.value });
+                }, 1000);
+            });
+        },
+        description: "Square the value",
+    }
 ];
 
 // @ts-ignore
-async function processData(): Promise<void> {
-   let result: Data = { value: 10 }
-    let objData :Data
-    for(let fun in asyncFunctionObjects){
-        console.log(asyncFunctionObjects[fun].description)
-       objData =  await asyncFunctionObjects[fun].func(result)
-        result=objData;
+async function processData(){
 
-    }
-    console.log(result)
 
 }
-
-// Run the processData function
 processData();
-// ```
 // //
 // // ### Explanation:
 // //

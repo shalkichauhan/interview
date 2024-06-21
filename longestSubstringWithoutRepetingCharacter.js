@@ -60,7 +60,7 @@ N-Queens: The n-queens puzzle is the problem of placing n queens on an n×n ches
 // update the max number to the pointer of the inner loop.
 // use math.Max to keep the max of the value in max
 //
-function longestSubstring(str) {
+function longestSubstringWithoutRepetingCharacter(str) {
     var maxSubStr = 0;
     var finalObj;
     for (var i = 0; i < str.length; i++) {
@@ -87,4 +87,4 @@ function longestSubstring(str) {
     var Finaloutput = arrayString.split(',').join('');
     return [maxSubStr, Finaloutput];
 }
-console.log(longestSubstring("abcdefabcf"));
+console.log(longestSubstringWithoutRepetingCharacter("abcdefabcf"));
